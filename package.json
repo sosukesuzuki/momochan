@@ -4,7 +4,8 @@
   "private": true,
   "description": "つくば市天久保 3 丁目にある弁当屋 [ももちゃん弁当](https://momo-chan.jp/) のメニュー表です。",
   "scripts": {
-    "build:json": "node ./scripts/build-json.js"
+    "build:json": "node ./scripts/build-json.js",
+    "build:website": "node ./scripts/build-website.js"
   },
   "author": {
     "name": "Sosuke Suzuki",
@@ -12,7 +13,8 @@
   },
   "license": "MIT",
   "devDependencies": {
-    "playwright": "^1.40.1"
+    "playwright": "^1.40.1",
+    "prettier": "^3.1.1"
   },
   "volta": {
     "node": "20.11.0"

@@ -1,8 +1,6 @@
 import fs from "node:fs/promises";
-
 import * as playwright from "playwright";
-
-const DIST_JSON_URL = new URL("../dist/momochan.json", import.meta.url);
+import * as dist from "./dist.js";
 
 const MOMOCHAN_BASE_URL = "https://momo-chan.jp";
 const MOMOCHAN_MENU_PATH_LIST = ["menu", "menu/page/2", "menu/page/3"];
@@ -40,4 +38,4 @@ for (const MOMOCHAN_MENU_PATH of MOMOCHAN_MENU_PATH_LIST) {
 
 await browser.close();
 
-await fs.writeFile(DIST_JSON_URL, JSON.stringify(output, null, 2) + "\n");
+await fs.writeFile(dist.DIST_JSON_URL, JSON.stringify(output, null, 2) + "\n");
