@@ -1,0 +1,42 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "updated": {
+      "type": "string",
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$"
+    },
+    "products": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "note": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string",
+            "enum": [
+              "唐揚げ",
+              "揚げ物",
+              "焼肉",
+              "のり弁当・そぼろ弁当",
+              "トッピングメニュー",
+              "特別メニュー",
+              "単品メニュー",
+              "サイドメニュー"
+            ]
+          },
+          "price": {
+            "type": "number"
+          }
+        },
+        "required": ["name", "type", "price"]
+      }
+    }
+  },
+  "required": ["updated", "products"]
+}
