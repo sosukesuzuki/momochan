@@ -12,6 +12,8 @@ const context = await browser.newContext();
 const page = await context.newPage();
 
 const output = {
+  $schema:
+    "https://raw.githubusercontent.com/sosukesuzuki/momochan/main/schema/schema.json",
   updated: new Date().toISOString().split("T")[0],
   products: [],
 };
@@ -24,9 +26,10 @@ for (const MOMOCHAN_MENU_PATH of MOMOCHAN_MENU_PATH_LIST) {
         const category = menuList.querySelector(".menu_category").innerText;
         return Array.from(menuList.querySelectorAll(".menu")).map((menu) => {
           const name = menu.querySelector(".menu_title a").innerText;
-          const price = menu
-            .querySelector(".menu_price")
-            .innerText.replace(/\D/g, "");
+          const price = Number.parseInt(
+            menu.querySelector(".menu_price").innerText.replace(/\D/g, ""),
+            10
+          );
           return { name, type: category, price };
         });
       })
